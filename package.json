@@ -4,7 +4,7 @@
   "description": "bookstore app pulling data from the helm_bookstore_api",
   "main": "index.js",
   "scripts": {
-    "test": "",
+    "test": "test",
     "start": "webpack serve --config webpack/webpack.config.js --env env=dev",
     "build": "webpack --config webpack/webpack.config.js --env env=prod",
     "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
@@ -22,6 +22,7 @@
     "@babel/preset-react": "^7.22.15",
     "@babel/preset-typescript": "^7.23.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
+    "@testing-library/react": "^14.0.0",
     "@types/react": "^18.2.25",
     "@types/react-dom": "^18.2.11",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
