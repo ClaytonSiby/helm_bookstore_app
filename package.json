@@ -1,0 +1,15 @@
+{
+  "name": "helm_bookstore_app",
+  "version": "1.0.0",
+  "description": "bookstore app pulling data from the helm_bookstore_api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ClaytonSiby",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
