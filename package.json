@@ -4,8 +4,9 @@
   "description": "bookstore app pulling data from the helm_bookstore_api",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --config webpack/webpack.config.js --open"
+    "test": "",
+    "start": "webpack serve --config webpack/webpack.config.js --env env=dev --open",
+    "build": "webpack --config webpack/webpack.config.js --env env=prod"
   },
   "author": "ClaytonSiby",
   "license": "ISC",
@@ -27,6 +28,7 @@
     "typescript": "^5.2.2",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-dev-server": "^4.15.1",
+    "webpack-merge": "^5.9.0"
   }
 }
