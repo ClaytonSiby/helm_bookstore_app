@@ -1,11 +1,12 @@
 import BookList from './features/book/BookList'
-import './styles.css'
+import './styles.scss'
 
 const App: React.FC = () => {
   return (
     <>
       <h1>Listing all Available Books</h1>
       <BookList />
+      <button className="btn btn-primary">Primary button</button>
     </>
   )
 }
