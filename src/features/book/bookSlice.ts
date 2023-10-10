@@ -1,12 +1,56 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
+// interface for the book object
+interface Book {
+  id: string
+  title: string
+  author: string
+  description: string
+  category: string
+  createdAt: string
+  updatedAt: string
+}
+
 export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
   const response = await axios.get(
     'https://helm-bookstore-api.onrender.com/api/books/'
   )
   return response.data
 })
+
+export const fetchBook = createAsyncThunk('books/fetchBook', async (id) => {
+  const response = await axios.get(
+    `https://helm-bookstore-api.onrender.com/api/books/${id}`
+  )
+  return response.data
+})
+
+export const addBook = createAsyncThunk('books/addBook', async (book) => {
+  const response = await axios.post(
+    'https://helm-bookstore-api.onrender.com/api/books/',
+    book
+  )
+  return response.data
+})
+
+export const deleteBook = createAsyncThunk('books/deleteBook', async (id) => {
+  const response = await axios.delete(
+    `https://helm-bookstore-api.onrender.com/api/books/${id}`
+  )
+  return response.data
+})
+
+export const updateBook = createAsyncThunk(
+  'books/updateBook',
+  async (book: Book) => {
+    const response = await axios.put(
+      `https://helm-bookstore-api.onrender.com/api/books/${book.id}`,
+      book
+    )
+    return response.data
+  }
+)
 
 const initialState = {
   books: [],
