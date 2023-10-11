@@ -3,7 +3,7 @@ const Navbar = () => {
     <div>
       <nav className="navbar bg-info-subtle fixed-top border-bottom">
         <div className="container">
-          <a className="navbar-brand" href="/">
+          <a className="navbar-brand text-secondary" href="/">
             Helm BookLibrary
           </a>
           <button

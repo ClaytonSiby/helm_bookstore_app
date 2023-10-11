@@ -1,5 +1,5 @@
 import React from 'react'
-import BookForm from '../BookForm'
+import CreateBook from '../BookForm'
 
 const BookModal = () => {
   return (
@@ -39,22 +39,7 @@ const BookModal = () => {
               ></button>
             </div>
             <div className="modal-body">
-              <BookForm />
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn bg-dark-subtle text-secondary"
-                data-bs-dismiss="modal"
-              >
-                Discard
-              </button>
-              <button
-                type="button"
-                className="btn bg-success-subtle text-success-emphasis"
-              >
-                Save Changes
-              </button>
+              <CreateBook />
             </div>
           </div>
         </div>
