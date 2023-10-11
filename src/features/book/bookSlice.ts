@@ -25,12 +25,15 @@ export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
   return response.data
 })
 
-export const fetchBook = createAsyncThunk('books/fetchBook', async (id) => {
-  const response = await axios.get(
-    `https://helm-bookstore-api.onrender.com/api/books/${id}`
-  )
-  return response.data
-})
+export const fetchBook = createAsyncThunk(
+  'books/fetchBook',
+  async (id: string) => {
+    const response = await axios.get(
+      `https://helm-bookstore-api.onrender.com/api/books/${id}/`
+    )
+    return response.data
+  }
+)
 
 export const addBook = createAsyncThunk('books/addBook', async (book: Book) => {
   try {
@@ -64,7 +67,7 @@ export const updateBook = createAsyncThunk(
   'books/updateBook',
   async (book: Book) => {
     const response = await axios.put(
-      `https://helm-bookstore-api.onrender.com/api/books/${book.id}`,
+      `https://helm-bookstore-api.onrender.com/api/books/${book.id}/`,
       book
     )
     return response.data
