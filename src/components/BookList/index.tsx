@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { fetchBooks } from '../../features/book/bookSlice'
 import LoadingSpinner from '../LoadingSpinner'
-import BookModal from '../BookModal'
+import AddBookModal from '../AddBookModal'
 import BookCard from '../BookCard'
 
 const BookList: React.FC = () => {
@@ -25,7 +25,7 @@ const BookList: React.FC = () => {
       ) : (
         <div>
           <div className="d-flex justify-content-between my-3">
-            <BookModal />
+            <AddBookModal />
             <h2 className="text-secondary">Book List</h2>
           </div>
           <div className="row">

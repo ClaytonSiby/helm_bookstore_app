@@ -2,6 +2,7 @@ import React from 'react'
 import { useAppDispatch } from '../../app/hooks'
 import { deleteBook } from '../../features/book/bookSlice'
 import formatDateString from '../../utils/formatDateString'
+import UpdateBookModal from '../UpdateBookModal'
 
 interface BookProps {
   bookId: string
@@ -51,9 +52,7 @@ const BookCard: React.FC<BookProps> = ({
               </p>
               <div className="row">
                 <div className="col-6">
-                  <button className="btn bg-info-subtle text-body-secondary">
-                    See Details
-                  </button>
+                  <UpdateBookModal bookId={bookId} />
                 </div>
                 <div className="col-6">
                   <button
