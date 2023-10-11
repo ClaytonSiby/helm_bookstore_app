@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import { store } from '../../../app/store'
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
-import BookList from '../BookList'
+import BookList from '..'
 
 const mock = new MockAdapter(axios)
 

@@ -1,4 +1,4 @@
-import BookList from './features/book/BookList'
+import BookList from './components/BookList'
 import './styles.scss'
 
 const App: React.FC = () => {
