@@ -17,14 +17,14 @@ const Navbar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div
-            className="offcanvas offcanvas-end"
+            className="offcanvas offcanvas-start"
             tabIndex={-1}
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
           >
-            <div className="offcanvas-header">
+            <div className="offcanvas-header border-bottom">
               <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
-                Offcanvas
+                Books Management
               </h5>
               <button
                 type="button"
