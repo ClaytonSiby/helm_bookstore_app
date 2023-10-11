@@ -1,8 +1,8 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
 // interface for the book object
-interface Book {
+export interface Book {
   id: string
   title: string
   author: string
@@ -13,7 +13,7 @@ interface Book {
 }
 
 type initialState = {
-  books: Book[]
+  booksData: Book[]
   isLoading: 'idle' | 'loading' | 'succeeded' | 'failed'
   error: string | null
 }
@@ -59,7 +59,7 @@ export const updateBook = createAsyncThunk(
 )
 
 const initialState: initialState = {
-  books: [],
+  booksData: [],
   isLoading: 'idle',
   error: '',
 }
@@ -73,9 +73,9 @@ const bookSlice = createSlice({
       .addCase(fetchBooks.pending, (state) => {
         state.isLoading = 'loading'
       })
-      .addCase(fetchBooks.fulfilled, (state, action: PayloadAction<Book[]>) => {
+      .addCase(fetchBooks.fulfilled, (state, action) => {
         state.isLoading = 'succeeded'
-        state.books = action.payload
+        state.booksData = action.payload.books
       })
       .addCase(fetchBooks.rejected, (state, action) => {
         state.isLoading = 'failed'
