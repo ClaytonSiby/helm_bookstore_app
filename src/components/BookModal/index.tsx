@@ -6,7 +6,7 @@ const BookModal = () => {
     <div>
       <button
         type="button"
-        className="btn bg-info"
+        className="btn bg-info-subtle"
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop"
       >
@@ -41,12 +41,12 @@ const BookModal = () => {
             <div className="modal-footer">
               <button
                 type="button"
-                className="btn btn-secondary"
+                className="btn bg-dark-subtle"
                 data-bs-dismiss="modal"
               >
                 Discard
               </button>
-              <button type="button" className="btn btn-success">
+              <button type="button" className="btn bg-success-subtle">
                 Save Changes
               </button>
             </div>
