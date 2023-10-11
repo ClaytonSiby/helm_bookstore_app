@@ -35,7 +35,7 @@ const BookList: React.FC = () => {
                 key={book.id}
                 bookAuthor={book.author}
                 bookTitle={book.title}
-                bookCategory={book.categories}
+                bookCategories={book.categories}
                 bookUpdatedAt={book.updated_at}
                 bookId={book.id}
               />

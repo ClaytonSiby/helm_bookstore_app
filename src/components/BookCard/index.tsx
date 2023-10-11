@@ -1,14 +1,17 @@
 import React from 'react'
-import { useAppDispatch } from '../../app/hooks'
+import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { deleteBook } from '../../features/book/bookSlice'
-import formatDateString from '../../utils/formatDateString'
+import {
+  formatDateString,
+  getFirstBookCategoryName,
+} from '../../utils/formatDateString'
 import UpdateBookModal from '../UpdateBookModal'
 
 interface BookProps {
   bookId: string
   bookTitle: string
   bookAuthor: string
-  bookCategory: string[]
+  bookCategories: string[]
   bookUpdatedAt: string
 }
 
@@ -16,10 +19,11 @@ const BookCard: React.FC<BookProps> = ({
   bookId,
   bookTitle,
   bookAuthor,
-  bookCategory,
+  bookCategories,
   bookUpdatedAt,
 }) => {
   const dispatch = useAppDispatch()
+  const categories = useAppSelector((state) => state.categories.categoriesData)
 
   const handleDeleteBook = async () => {
     try {
@@ -39,15 +43,19 @@ const BookCard: React.FC<BookProps> = ({
               <h5 className="card-title text-secondary">{bookTitle}</h5>
               <p className="card-text">
                 <small className="text-body-secondary">
-                  Author: {bookAuthor}
+                  <span className="text-info">Author: </span> {bookAuthor}
                 </small>
               </p>
               <p className="text-secondary-emphasis">
-                Category: {bookCategory}
+                <small>
+                  <span className="text-info">Category:</span>
+                  {getFirstBookCategoryName(bookCategories, categories)}
+                </small>
               </p>
               <p className="card-text">
                 <small className="text-secondary-emphasis">
-                  Last updated: {formatDateString(bookUpdatedAt)}
+                  <span className="text-info">Last updated: </span>
+                  {formatDateString(bookUpdatedAt)}
                 </small>
               </p>
               <div className="row">

@@ -1,4 +1,6 @@
-const formatDateString = (dateString: string) => {
+import { Category } from '../features/category/categorySlice'
+
+export const formatDateString = (dateString: string) => {
   const date = new Date(dateString)
   const options: Intl.DateTimeFormatOptions = {
     year: 'numeric',
@@ -11,4 +13,12 @@ const formatDateString = (dateString: string) => {
   return date.toLocaleString('en-US', options)
 }
 
-export default formatDateString
+export const getFirstBookCategoryName = (
+  bookCategories: string[],
+  availableCategories: Category[]
+) => {
+  const firstCategory = availableCategories.filter(
+    (category: Category) => bookCategories[0] === category.id
+  )[0]
+  return firstCategory.name ? firstCategory.name : 'Uncategorized'
+}
