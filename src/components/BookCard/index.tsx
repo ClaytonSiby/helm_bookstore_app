@@ -7,7 +7,7 @@ interface BookProps {
   bookId: string
   bookTitle: string
   bookAuthor: string
-  bookCategory: string
+  bookCategory: string[]
   bookUpdatedAt: string
 }
 

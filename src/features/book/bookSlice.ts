@@ -7,7 +7,7 @@ export interface Book {
   title: string
   author: string
   description: string
-  category: string
+  categories: string[]
   created_at: string
   updated_at: string
 }
@@ -32,12 +32,17 @@ export const fetchBook = createAsyncThunk('books/fetchBook', async (id) => {
   return response.data
 })
 
-export const addBook = createAsyncThunk('books/addBook', async (book) => {
-  const response = await axios.post(
-    'https://helm-bookstore-api.onrender.com/api/books/',
-    book
-  )
-  return response.data
+export const addBook = createAsyncThunk('books/addBook', async (book: Book) => {
+  try {
+    const response = await axios.post(
+      'https://helm-bookstore-api.onrender.com/api/books/',
+      book
+    )
+
+    return response.data
+  } catch (error) {
+    alert(error)
+  }
 })
 
 export const deleteBook = createAsyncThunk(
