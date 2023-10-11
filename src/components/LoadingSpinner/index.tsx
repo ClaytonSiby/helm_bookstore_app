@@ -1,6 +1,5 @@
 import { CSSProperties, FC } from 'react'
 import { RingLoader } from 'react-spinners'
-import './styles.scss'
 
 const override: CSSProperties = {
   display: 'block',
@@ -10,7 +9,7 @@ const override: CSSProperties = {
 
 const LoadingSpinner: FC = () => {
   return (
-    <div className="loading-spinner">
+    <div className="loadingSpinner">
       <RingLoader color="#36d7b7" cssOverride={override} />
     </div>
   )

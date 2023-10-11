@@ -1,5 +1,3 @@
-import React from 'react'
-
 const BookForm = () => {
   return (
     <form className="d-flex mt-3">
@@ -22,7 +20,7 @@ const BookForm = () => {
         </div>
         <div className="form-group my-2">
           <select className="form-select" id="inlineFormSelectPref" name="book">
-            <option value="" disabled selected hidden>
+            <option value="" defaultValue="">
               Select Category
             </option>
             <option value="1">Sci-fi</option>
