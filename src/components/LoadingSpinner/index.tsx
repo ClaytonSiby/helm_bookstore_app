@@ -1,5 +1,5 @@
 import { CSSProperties, FC } from 'react'
-import { ClipLoader } from 'react-spinners'
+import { RingLoader } from 'react-spinners'
 
 const override: CSSProperties = {
   display: 'block',
@@ -10,7 +10,7 @@ const override: CSSProperties = {
 const LoadingSpinner: FC = () => {
   return (
     <div className="loading-spinner">
-      <ClipLoader color="#36d7b7" cssOverride={override} />
+      <RingLoader color="#36d7b7" cssOverride={override} />
     </div>
   )
 }
