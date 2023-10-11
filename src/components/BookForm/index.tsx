@@ -20,7 +20,7 @@ const BookForm = () => {
         </div>
         <div className="form-group my-2">
           <select className="form-select" id="inlineFormSelectPref" name="book">
-            <option value="" defaultValue="">
+            <option value="" defaultValue="" className="text-secondary">
               Select Category
             </option>
             <option value="1">Sci-fi</option>
@@ -35,7 +35,9 @@ const BookForm = () => {
               placeholder="Leave a comment here"
               id="floatingTextarea"
             ></textarea>
-            <label htmlFor="floatingTextarea">book details</label>
+            <label htmlFor="floatingTextarea" className="text-secondary">
+              book details
+            </label>
           </div>
         </div>
       </div>

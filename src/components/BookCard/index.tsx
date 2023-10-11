@@ -35,25 +35,29 @@ const BookCard: React.FC<BookProps> = ({
         <div className="row g-0">
           <div className="col-12">
             <div className="card-body">
-              <h5 className="card-title">{bookTitle}</h5>
+              <h5 className="card-title text-secondary">{bookTitle}</h5>
               <p className="card-text">
                 <small className="text-body-secondary">
                   Author: {bookAuthor}
                 </small>
               </p>
-              <p>Category: {bookCategory}</p>
+              <p className="text-secondary-emphasis">
+                Category: {bookCategory}
+              </p>
               <p className="card-text">
-                <small className="text-body-secondary">
+                <small className="text-secondary-emphasis">
                   Last updated: {formatDateString(bookUpdatedAt)}
                 </small>
               </p>
               <div className="row">
                 <div className="col-6">
-                  <button className="btn bg-info-subtle">See Details</button>
+                  <button className="btn bg-info-subtle text-body-secondary">
+                    See Details
+                  </button>
                 </div>
                 <div className="col-6">
                   <button
-                    className="btn bg-danger-subtle"
+                    className="btn bg-danger-subtle text-body-secondary"
                     onClick={handleDeleteBook}
                   >
                     Delete Book

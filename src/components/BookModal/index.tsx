@@ -25,7 +25,10 @@ const BookModal = () => {
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content bg-info-subtle">
             <div className="modal-header border-bottom border-info">
-              <h1 className="modal-title fs-5" id="staticBackdropLabel">
+              <h1
+                className="modal-title fs-5 text-body-tertiary"
+                id="staticBackdropLabel"
+              >
                 Book Information
               </h1>
               <button
@@ -41,12 +44,15 @@ const BookModal = () => {
             <div className="modal-footer">
               <button
                 type="button"
-                className="btn bg-dark-subtle"
+                className="btn bg-dark-subtle text-secondary"
                 data-bs-dismiss="modal"
               >
                 Discard
               </button>
-              <button type="button" className="btn bg-success-subtle">
+              <button
+                type="button"
+                className="btn bg-success-subtle text-success-emphasis"
+              >
                 Save Changes
               </button>
             </div>

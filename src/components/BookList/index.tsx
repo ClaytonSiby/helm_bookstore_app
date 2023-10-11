@@ -26,7 +26,7 @@ const BookList: React.FC = () => {
         <div>
           <div className="d-flex justify-content-between my-3">
             <BookModal />
-            <h2>Book List</h2>
+            <h2 className="text-secondary">Book List</h2>
           </div>
           <div className="row">
             {books?.map((book) => (
