@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { fetchBooks } from '../../features/book/bookSlice'
+import { fetchCategories } from '../../features/category/categorySlice'
 import LoadingSpinner from '../LoadingSpinner'
 import AddBookModal from '../AddBookModal'
 import BookCard from '../BookCard'
@@ -11,11 +12,11 @@ const BookList: React.FC = () => {
   const isLoading = useAppSelector((state) => state.books.isLoading)
 
   useEffect(() => {
-    const fetchBooksData = async () => {
-      await dispatch(fetchBooks())
+    const fetchBooksAndCategoriesData = async () => {
+      await Promise.all([dispatch(fetchBooks()), dispatch(fetchCategories())])
     }
 
-    fetchBooksData()
+    fetchBooksAndCategoriesData()
   }, [dispatch])
 
   return (
