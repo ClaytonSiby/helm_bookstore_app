@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { fetchBooks } from './bookSlice'
-import { RootState } from '../../app/store'
 
 const BookList: React.FC = () => {
-  const dispatch = useDispatch()
-  const books = useSelector((state: RootState) => state.books.books)
+  const dispatch = useAppDispatch()
+  const books = useAppSelector((state) => state.books.books)
 
   useEffect(() => {
     dispatch(fetchBooks() as any)
