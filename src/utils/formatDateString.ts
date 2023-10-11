@@ -20,5 +20,5 @@ export const getFirstBookCategoryName = (
   const firstCategory = availableCategories.filter(
     (category: Category) => bookCategories[0] === category.id
   )[0]
-  return firstCategory.name ? firstCategory.name : 'Uncategorized'
+  return firstCategory ? firstCategory.name : 'Uncategorized'
 }

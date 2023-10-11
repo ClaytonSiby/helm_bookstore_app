@@ -48,7 +48,7 @@ const BookCard: React.FC<BookProps> = ({
               </p>
               <p className="text-secondary-emphasis">
                 <small>
-                  <span className="text-info">Category:</span>
+                  <span className="text-info">Category: </span>
                   {getFirstBookCategoryName(bookCategories, categories)}
                 </small>
               </p>

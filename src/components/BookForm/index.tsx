@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { useAppDispatch } from '../../app/hooks'
+import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { Book, addBook } from '../../features/book/bookSlice'
+import { Category } from '../../features/category/categorySlice'
 
 const CreateBook = () => {
   const [formData, setFormData] = useState<Book>({
@@ -13,6 +14,12 @@ const CreateBook = () => {
     updated_at: '',
   })
   const dispatch = useAppDispatch()
+  const categories = useAppSelector((state) => state.categories.categoriesData)
+
+  const distinctCategories = categories.filter(
+    (category: Category, index: number, self: Category[]) =>
+      index === self.findIndex((t: Category) => t.id === category.id)
+  )
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -94,14 +101,11 @@ const CreateBook = () => {
             onChange={handleInputChange}
             multiple={true}
           >
-            <option value="" defaultValue="" className="text-secondary">
-              Select Category
-            </option>
-            <option value="Sci-fi">Sci-fi</option>
-            <option value="7398f11c-0633-4996-9651-6b05ac47d63f">
-              Psychology
-            </option>
-            <option value="Fantasy">Fantasy</option>
+            {distinctCategories?.map((category) => (
+              <option key={category.id} value={category.id}>
+                {category.name}
+              </option>
+            ))}
           </select>
         </div>
         <div className="form-group my-2">
