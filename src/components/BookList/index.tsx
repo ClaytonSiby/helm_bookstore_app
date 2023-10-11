@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { fetchBooks } from '../../features/book/bookSlice'
 import LoadingSpinner from '../LoadingSpinner'
 import BookModal from '../BookModal'
+import Book from '../Book'
 
 const BookList: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -10,7 +11,11 @@ const BookList: React.FC = () => {
   const isLoading = useAppSelector((state) => state.books.isLoading)
 
   useEffect(() => {
-    dispatch(fetchBooks() as any)
+    const fetchBooksData = async () => {
+      await dispatch(fetchBooks())
+    }
+
+    fetchBooksData()
   }, [dispatch])
 
   return (
@@ -21,7 +26,16 @@ const BookList: React.FC = () => {
         <div>
           <BookModal />
           <h2>Book List</h2>
-          {books?.map((book) => <div key={book.id}>{book.title}</div>)}
+          {books?.map((book) => (
+            <Book
+              key={book.id}
+              bookAuthor={book.author}
+              bookTitle={book.title}
+              bookCategory={book.category}
+              bookUpdatedAt={book.updatedAt}
+              bookId={book.id}
+            />
+          ))}
         </div>
       )}
     </div>

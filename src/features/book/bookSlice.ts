@@ -40,12 +40,20 @@ export const addBook = createAsyncThunk('books/addBook', async (book) => {
   return response.data
 })
 
-export const deleteBook = createAsyncThunk('books/deleteBook', async (id) => {
-  const response = await axios.delete(
-    `https://helm-bookstore-api.onrender.com/api/books/${id}`
-  )
-  return response.data
-})
+export const deleteBook = createAsyncThunk(
+  'books/deleteBook',
+  async (id: string) => {
+    try {
+      await axios.delete(
+        `https://helm-bookstore-api.onrender.com/api/books/${id}/`
+      )
+
+      alert('Book deleted successfully')
+    } catch (error) {
+      alert(error)
+    }
+  }
+)
 
 export const updateBook = createAsyncThunk(
   'books/updateBook',
