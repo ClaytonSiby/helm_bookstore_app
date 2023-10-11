@@ -1,7 +1,7 @@
 import React from 'react'
 import CreateBook from '../BookForm'
 
-const BookModal = () => {
+const AddBookModal = () => {
   return (
     <div>
       <button
@@ -48,4 +48,4 @@ const BookModal = () => {
   )
 }
 
-export default BookModal
+export default AddBookModal
