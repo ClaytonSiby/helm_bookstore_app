@@ -6,7 +6,7 @@ const UpdateBookModal = ({ bookId }: UpdateBookProps) => {
     <div>
       <button
         type="button"
-        className="btn bg-info-subtle"
+        className="btn btn-sm bg-info-subtle"
         data-bs-toggle="modal"
         data-bs-target="#staticBackdropEdit"
       >

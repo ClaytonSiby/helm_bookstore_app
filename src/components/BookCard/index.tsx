@@ -64,7 +64,7 @@ const BookCard: React.FC<BookProps> = ({
                 </div>
                 <div className="col-6">
                   <button
-                    className="btn bg-danger-subtle text-body-secondary"
+                    className="btn btn-sm bg-danger-subtle text-body-secondary"
                     onClick={handleDeleteBook}
                   >
                     Delete Book
