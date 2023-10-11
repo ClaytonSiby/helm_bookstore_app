@@ -8,8 +8,8 @@ export interface Book {
   author: string
   description: string
   category: string
-  createdAt: string
-  updatedAt: string
+  created_at: string
+  updated_at: string
 }
 
 type initialState = {

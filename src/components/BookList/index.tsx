@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { fetchBooks } from '../../features/book/bookSlice'
 import LoadingSpinner from '../LoadingSpinner'
 import BookModal from '../BookModal'
-import Book from '../Book'
+import BookCard from '../BookCard'
 
 const BookList: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -24,18 +24,22 @@ const BookList: React.FC = () => {
         <LoadingSpinner />
       ) : (
         <div>
-          <BookModal />
-          <h2>Book List</h2>
-          {books?.map((book) => (
-            <Book
-              key={book.id}
-              bookAuthor={book.author}
-              bookTitle={book.title}
-              bookCategory={book.category}
-              bookUpdatedAt={book.updatedAt}
-              bookId={book.id}
-            />
-          ))}
+          <div className="d-flex justify-content-between my-3">
+            <BookModal />
+            <h2>Book List</h2>
+          </div>
+          <div className="row">
+            {books?.map((book) => (
+              <BookCard
+                key={book.id}
+                bookAuthor={book.author}
+                bookTitle={book.title}
+                bookCategory={book.category}
+                bookUpdatedAt={book.updated_at}
+                bookId={book.id}
+              />
+            ))}
+          </div>
         </div>
       )}
     </div>
