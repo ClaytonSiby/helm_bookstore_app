@@ -74,7 +74,7 @@ const CreateBook = () => {
           <input
             type="text"
             className="form-control"
-            placeholder="Book Title"
+            placeholder="title"
             aria-label="Book Title"
             name="title"
             value={formData.title}
@@ -85,7 +85,7 @@ const CreateBook = () => {
           <input
             type="text"
             className="form-control"
-            placeholder="Author Name"
+            placeholder="author"
             aria-label="Author Name"
             name="author"
             value={formData.author}
@@ -94,16 +94,23 @@ const CreateBook = () => {
         </div>
         <div className="form-group my-2">
           <select
-            className="form-select"
+            className="form-select text-body-secondary p-0"
             id="inlineFormSelectPref"
             name="categories"
             value={formData.categories}
             onChange={handleInputChange}
             multiple={true}
           >
+            <option className="border-bottom border-info py-1 text-info disabled">
+              Select Category
+            </option>
             {distinctCategories?.map((category) => (
-              <option key={category.id} value={category.id}>
-                {category.name}
+              <option
+                key={category.id}
+                value={category.id}
+                className="py-1 w-lighter"
+              >
+                <small className="py-1 w-lighter">{category.name}</small>
               </option>
             ))}
           </select>
@@ -111,7 +118,7 @@ const CreateBook = () => {
         <div className="form-group my-2">
           <div className="form-floating">
             <textarea
-              className="form-control"
+              className="form-control h-75"
               placeholder="Leave a comment here"
               id="floatingTextarea"
               name="description"
@@ -119,7 +126,7 @@ const CreateBook = () => {
               onChange={handleInputChange}
             ></textarea>
             <label htmlFor="floatingTextarea" className="text-secondary">
-              details
+              description
             </label>
           </div>
         </div>
