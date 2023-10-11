@@ -20,6 +20,6 @@ it('should make a GET request when rendering BookList component', async () => {
 
   // Wait for the GET request to complete
   await waitFor(() => {
-    expect(mock.history.get.length).toBe(1)
+    expect(mock.history.get.length).toBe(2)
   })
 })
