@@ -1,5 +1,6 @@
 import { CSSProperties, FC } from 'react'
 import { RingLoader } from 'react-spinners'
+import './styles.scss'
 
 const override: CSSProperties = {
   display: 'block',
