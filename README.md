@@ -9,7 +9,7 @@ This is an MVP version of a bookstore where you can keep all your favorite books
 
 <ins>**Application Setup Instructions**</ins>
 
-<h6>Make sure you have the latest version of [Node](https://nodejs.org/en/) this instructions to setup and run the application on you local environment:</h6>
+<h6>Make sure you have the latest version of [Node](https://nodejs.org/en/) and follow this instructions to setup and run the application on you local environment:</h6>
 
 - `git clone https://github.com/ClaytonSiby/helm_bookstore_app.git` <br />
 - `cd helm_bookstore_app` <br />
