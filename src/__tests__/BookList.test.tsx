@@ -1,9 +1,9 @@
 import { render, waitFor } from '@testing-library/react'
 import { Provider } from 'react-redux'
-import { store } from '../../../app/store'
+import { store } from '../app/store'
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
-import BookList from '..'
+import BookList from '../components/BookList'
 
 const mock = new MockAdapter(axios)
 
