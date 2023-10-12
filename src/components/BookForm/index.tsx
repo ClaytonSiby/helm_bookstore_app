@@ -26,7 +26,7 @@ const CreateBook = () => {
     console.log(formData)
 
     try {
-      dispatch(addBook(formData))
+      const response: any = await dispatch(addBook(formData))
       setFormData({
         id: '',
         title: '',
@@ -37,6 +37,9 @@ const CreateBook = () => {
         updated_at: '',
       })
 
+      console.log(response)
+
+      alert(`Book creation was a : ${response.payload.message}`)
       window.location.reload()
     } catch (error) {
       console.log(error)
@@ -79,6 +82,7 @@ const CreateBook = () => {
             name="title"
             value={formData.title}
             onChange={handleInputChange}
+            required
           />
         </div>
         <div className="col col-md-6 form-group my-2">
@@ -90,6 +94,7 @@ const CreateBook = () => {
             name="author"
             value={formData.author}
             onChange={handleInputChange}
+            required
           />
         </div>
         <div className="form-group my-2">
@@ -100,6 +105,7 @@ const CreateBook = () => {
             value={formData.categories}
             onChange={handleInputChange}
             multiple={true}
+            required
           >
             <option className="border-bottom border-info py-1 text-info disabled">
               Select Category
@@ -124,6 +130,7 @@ const CreateBook = () => {
               name="description"
               value={formData.description}
               onChange={handleInputChange}
+              required
             ></textarea>
             <label htmlFor="floatingTextarea" className="text-secondary">
               description
