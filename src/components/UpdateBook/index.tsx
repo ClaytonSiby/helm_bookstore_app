@@ -1,27 +1,35 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import { Book, updateBook } from '../../features/book/bookSlice'
+import { Book, fetchBook, updateBook } from '../../features/book/bookSlice'
 
-export interface UpdateBookProps {
-  bookId: string
-}
-
-const UpdateBook = ({ bookId }: UpdateBookProps) => {
+const UpdateBook = () => {
+  const { bookId } = useParams<{ bookId: string }>()
   const dispatch = useAppDispatch()
-  const book = useAppSelector(
-    (state) =>
-      state.books.booksData.filter((book: Book) => book.id === bookId)[0]
-  )
-
+  const book = useAppSelector((state) => state.books.book)
+  const navigate = useNavigate()
   const [formData, setFormData] = useState<Book>({
-    id: bookId,
+    id: book.id,
     title: book.title,
     author: book.author,
-    categories: [...book.categories],
+    categories: book.categories,
     description: book.description,
     created_at: book.created_at,
     updated_at: book.updated_at,
   })
+  const id = bookId ?? ''
+
+  const handleRedirect = () => {
+    navigate('/')
+    window.location.reload()
+  }
+
+  useEffect(() => {
+    ;(async () => {
+      const response = await dispatch(fetchBook(id))
+      setFormData(response.payload.book)
+    })()
+  }, [dispatch, id])
 
   const handleInputChange = (
     e: React.ChangeEvent<
@@ -47,9 +55,14 @@ const UpdateBook = ({ bookId }: UpdateBookProps) => {
     }
   }
 
-  const handleUpdateBook = () => {
-    console.log(formData)
-    dispatch(updateBook(formData))
+  const handleUpdateBook = async () => {
+    try {
+      const response = await dispatch(updateBook(formData))
+      alert(`Update was a : ${response.payload.message}`)
+      handleRedirect()
+    } catch (error) {
+      alert(`Error: ${error}`)
+    }
   }
 
   return (

@@ -1,11 +1,11 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { deleteBook } from '../../features/book/bookSlice'
 import {
   formatDateString,
   getFirstBookCategoryName,
 } from '../../utils/formatDateString'
-import UpdateBookModal from '../UpdateBookModal'
 
 interface BookProps {
   bookId: string
@@ -24,6 +24,11 @@ const BookCard: React.FC<BookProps> = ({
 }) => {
   const dispatch = useAppDispatch()
   const categories = useAppSelector((state) => state.categories.categoriesData)
+  const navigate = useNavigate()
+
+  const handleSeeBookDetails = () => {
+    navigate(`/${bookId}`)
+  }
 
   const handleDeleteBook = async () => {
     try {
@@ -60,7 +65,12 @@ const BookCard: React.FC<BookProps> = ({
               </p>
               <div className="row">
                 <div className="col-6">
-                  <UpdateBookModal bookId={bookId} />
+                  <button
+                    className="btn btn-sm btn-info text-body-secondary"
+                    onClick={handleSeeBookDetails}
+                  >
+                    See Details
+                  </button>
                 </div>
                 <div className="col-6">
                   <button

@@ -23,7 +23,6 @@ const CreateBook = () => {
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log(formData)
 
     try {
       const response: any = await dispatch(addBook(formData))
@@ -36,8 +35,6 @@ const CreateBook = () => {
         created_at: '',
         updated_at: '',
       })
-
-      console.log(response)
 
       alert(`Book creation was a : ${response.payload.message}`)
       window.location.reload()
@@ -110,7 +107,7 @@ const CreateBook = () => {
             <option className="border-bottom border-info py-1 text-info disabled">
               Select Category
             </option>
-            {distinctCategories?.map((category) => (
+            {distinctCategories?.map((category: Category) => (
               <option
                 key={category.id}
                 value={category.id}
