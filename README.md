@@ -3,7 +3,7 @@
 This is an MVP version of a bookstore where you can keep all your favorite books together in one easy to manage place. You can Add more books, View a book's details, Update a book's information, and Delete it from your collection. This version allows your to do all these functionalities with ease.
 </h4>
 
-**Application Functionality**
+<ins>**Application Functionality**</ins>
 
 ![App Functionality](/src/assets/images/helm_bookstore.gif)
 
