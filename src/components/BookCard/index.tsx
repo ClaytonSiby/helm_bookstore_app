@@ -35,7 +35,7 @@ const BookCard: React.FC<BookProps> = ({
   }
 
   return (
-    <div className="col-12 col-md-3">
+    <div className="col-12 col-md-4 col-lg-3">
       <div className="card mb-3 col-12">
         <div className="row g-0">
           <div className="col-12">

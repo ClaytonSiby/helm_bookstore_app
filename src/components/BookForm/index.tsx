@@ -118,7 +118,7 @@ const CreateBook = () => {
         <div className="form-group my-2">
           <div className="form-floating">
             <textarea
-              className="form-control h-75"
+              className="form-control bookDescription"
               placeholder="Leave a comment here"
               id="floatingTextarea"
               name="description"
