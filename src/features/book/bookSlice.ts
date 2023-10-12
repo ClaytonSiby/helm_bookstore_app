@@ -16,6 +16,7 @@ type initialState = {
   booksData: Book[]
   isLoading: 'idle' | 'loading' | 'succeeded' | 'failed'
   error: string | null
+  book: Book
 }
 
 export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
@@ -78,6 +79,15 @@ const initialState: initialState = {
   booksData: [],
   isLoading: 'idle',
   error: '',
+  book: {
+    id: '',
+    title: '',
+    author: '',
+    categories: [],
+    description: '',
+    created_at: '',
+    updated_at: '',
+  },
 }
 
 const bookSlice = createSlice({
@@ -94,6 +104,17 @@ const bookSlice = createSlice({
         state.booksData = action.payload.books
       })
       .addCase(fetchBooks.rejected, (state, action) => {
+        state.isLoading = 'failed'
+        state.error = action.error.message || 'Unknown error'
+      })
+      .addCase(fetchBook.pending, (state) => {
+        state.isLoading = 'loading'
+      })
+      .addCase(fetchBook.fulfilled, (state, action) => {
+        state.isLoading = 'succeeded'
+        state.book = action.payload.book
+      })
+      .addCase(fetchBook.rejected, (state, action) => {
         state.isLoading = 'failed'
         state.error = action.error.message || 'Unknown error'
       })
