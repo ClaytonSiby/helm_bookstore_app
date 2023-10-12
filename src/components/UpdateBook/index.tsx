@@ -66,7 +66,10 @@ const UpdateBook = () => {
   }
 
   return (
-    <form className="d-flex mt-3">
+    <form className="d-flex flex-column justify-content-center align-items-center mt-3 bookDetailsPage">
+      <div className="text-center text-info my-3">
+        <h5>Details for {formData.title}</h5>
+      </div>
       <div className="row">
         <div className="col col-md-6 form-group my-2">
           <input
